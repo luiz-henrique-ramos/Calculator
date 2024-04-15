@@ -32,147 +32,96 @@ namespace Calculator
 
         private void btnZero_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text != "0") textBox1.Text += "0";
+            textBox1.Text = (textBox1.Text != "0") ? (textBox1.Text + "0") : "0"; 
         }
 
         private void btnOne_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "0")
-            {
-                textBox1.Text = "1";
-            }
-            else { textBox1.Text += "1"; }
+            textBox1.Text = (textBox1.Text == "0") ? "1" : (textBox1.Text + "1");
         }
 
         private void btnTwo_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "0")
-            {
-                textBox1.Text = "2";
-            }
-            else 
-            { 
-                textBox1.Text += "2"; 
-            }
+            textBox1.Text = (textBox1.Text == "0") ? "2" : (textBox1.Text + "2");
         }
 
         private void btnThree_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "0")
-            {
-                textBox1.Text = "3";
-            }
-            else 
-            { 
-                textBox1.Text += "3";
-            }
+            textBox1.Text = (textBox1.Text == "0") ? "3" : (textBox1.Text + "3");
         }
 
         private void btnFour_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "0")
-            {
-                textBox1.Text = "4";
-            }
-            else 
-            { 
-                textBox1.Text += "4"; 
-            }
+            textBox1.Text = (textBox1.Text == "0") ? "4" : (textBox1.Text + "4");
         }
 
         private void btnFive_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "0")
-            {
-                textBox1.Text = "5";
-            }
-            else 
-            { 
-                textBox1.Text += "5"; 
-            }
+            textBox1.Text = (textBox1.Text == "0") ? "5" : (textBox1.Text + "5");
         }
 
         private void btnSix_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "0")
-            {
-                textBox1.Text = "6";
-            }
-            else 
-            { 
-                textBox1.Text += "6"; 
-            }
+            textBox1.Text = (textBox1.Text == "0") ? "6" : (textBox1.Text + "6");
         }
 
         private void btnSeven_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "0")
-            {
-                textBox1.Text = "7";
-            }
-            else 
-            { 
-                textBox1.Text += "7"; 
-            }
+            textBox1.Text = (textBox1.Text == "0") ? "7" : (textBox1.Text + "7");
         }
 
         private void btnEigth_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "0")
-            {
-                textBox1.Text = "8";
-            }
-            else 
-            { 
-                textBox1.Text += "8";
-            }
+            textBox1.Text = (textBox1.Text == "0") ? "8" : (textBox1.Text + "8");
         }
 
         private void btnNine_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "0")
-            {
-                textBox1.Text = "9";
-            }
-            else 
-            { 
-                textBox1.Text += "9"; 
-            }
+            textBox1.Text = (textBox1.Text == "0") ? "9" : (textBox1.Text + "9");
         }
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
-            SelectedOperation = Operations.Addition;
-            Value = Convert.ToDecimal(textBox1.Text);
-            textBox2.Text += $"{textBox1.Text:F4}" + " + ";
-            textBox1.Text = "0";
- 
+            if (textBox1.Text != "0")
+            {
+                SelectedOperation = Operations.Addition;
+                Value = Convert.ToDecimal(textBox1.Text);
+                textBox2.Text += $"{textBox1.Text:F4}" + " + ";
+                textBox1.Text = "0";
+            }
         }
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
-            SelectedOperation = Operations.Subtraction; 
-            Value = Convert.ToDecimal(textBox1.Text);
-            textBox2.Text += $"{textBox1.Text:F4}" + " - ";
-            textBox1.Text = "0"; 
-            
+            if (textBox1.Text != "0")
+            {
+                SelectedOperation = Operations.Subtraction;
+                Value = Convert.ToDecimal(textBox1.Text);
+                textBox2.Text += $"{textBox1.Text:F4}" + " - ";
+                textBox1.Text = "0";
+            }
         }
 
         private void btnTimes_Click(object sender, EventArgs e)
         {
-            SelectedOperation = Operations.Multiplication;
-            Value = Convert.ToDecimal(textBox1.Text);
-            textBox2.Text += $"{textBox1.Text:F4}" + " X ";
-            textBox1.Text = "0"; 
-            
+            if (textBox1.Text != "0")
+            {
+                SelectedOperation = Operations.Multiplication;
+                Value = Convert.ToDecimal(textBox1.Text);
+                textBox2.Text += $"{textBox1.Text:F4}" + " X ";
+                textBox1.Text = "0";
+            }
         }
 
         private void btnDivided_Click(object sender, EventArgs e)
         {
-            SelectedOperation = Operations.Division;
-            Value = Convert.ToDecimal(textBox1.Text);
-            textBox2.Text += $"{textBox1.Text:F4}" + " ÷ ";
-            textBox1.Text = "0"; 
+            if (textBox1.Text != "0")
+            {
+                SelectedOperation = Operations.Division;
+                Value = Convert.ToDecimal(textBox1.Text);
+                textBox2.Text += $"{textBox1.Text:F4}" + " ÷ ";
+                textBox1.Text = "0";
+            }
         }
 
         private void btnEquals_Click(object sender, EventArgs e)
@@ -204,13 +153,16 @@ namespace Calculator
         private void btnPeriod_Click(object sender, EventArgs e)
         {
             
-            if(!textBox1.Text.Contains(",")) textBox1.Text += ",";
+            if(!textBox1.Text.Contains(",")) textBox1.Text += ","; 
         }
 
         private void btnErase_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text.Count() > 1) textBox1.Text = "0";
+            textBox1.Text = "0";
             textBox2.Text = "";
+
+            Result = 0;
+            Value = 0;
         }
 
         private void btnPercentage_Click(object sender, EventArgs e)
@@ -222,24 +174,13 @@ namespace Calculator
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text.Length > 0) 
-            {
-                string text = textBox1.Text;
-                textBox1.Text = text.Substring(1);
-            }
-            
+            textBox1.Text = textBox1.Text != "0" ? textBox1.Text.Substring(0, textBox1.Text.Length - 1) : "0";
+            textBox1.Text = textBox1.Text == "" ? "0" : textBox1.Text;
         }
 
         private void btnSignals_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.StartsWith("-"))
-            {
-                textBox1.Text = textBox1.Text.Remove(0, 1);
-            }
-            else
-            {
-                textBox1.Text = textBox1.Text.Insert(0, "-");
-            }
+            textBox1.Text = textBox1.Text.StartsWith("-") ? textBox1.Text.Remove(0, 1) : textBox1.Text.Insert(0, "-");
         }
 
     }
